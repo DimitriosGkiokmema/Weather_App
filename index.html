@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="current-info">
+            <div class="date-container">
+                <div class="time" id="time">
+                    Time
+                    <span id="am-pm">am/pm</span>
+                </div>
+                <div class="date" id="date">
+                    Date
+                </div>
+
+                <div class="others" id="current-weather-items">
+                    <!-- Weather data: wind speed, temp, etc. -->
+                </div>
+            </div>
+
+            <div class="place-container">
+                <div class="time-zone" id="time-zone">Time Zone</div>
+                <div class="country" id="country">Country</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="future-forecast">
+        <div class="today" id="current-temp">
+            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+            <div class="other">
+                <div class="day">Day 1</div>
+                <div class="temp">69.69&#176; C</div>
+            </div>
+        </div>
+
+        <div class="weather-forecast" id="weather-forecast">
+            <div class="weather-forecast-item">
+                <div class="day">Day 2</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">69.69&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Day 3</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">69.69&#176; C</div>
+            </div>
+
+            <!-- The API I am using only allows for a 3 day forecast on its free plan -->
+            <!--
+            <div class="weather-forecast-item">
+                <div class="day">Thur</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Day - 69.69&#176; C</div>
+                <div class="temp">Night - 69.69&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Fri</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Day - 69.69&#176; C</div>
+                <div class="temp">Night - 69.69&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Sat</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Day - 69.69&#176; C</div>
+                <div class="temp">Night - 69.69&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Sun</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Day - 69.69&#176; C</div>
+                <div class="temp">Night - 69.69&#176; C</div>
+            </div>
+        -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" referrerpolicy="no-referrer"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
