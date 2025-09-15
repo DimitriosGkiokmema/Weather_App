@@ -11,22 +11,38 @@ const currentTempEl = document.getElementById('current-temp');
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Now', 'Dec']
 const API_KEY = '1e753cd618cf45b1859223930252308'
-const LOCATION = 'Toronto'
+let LOCATION = 'Toronto'
+let TIMEZONE = 'America/Toronto'
 
 // Updates Time
 setInterval(() => {
-    const time = new Date();
-    const month = time.getMonth();
-    const date = time.getDate();
-    const day = time.getDay();
-    const hour = time.getHours();
-    const hoursIn12HrFormat = hour >= 13 ? hour %12: hour
-    const minutes = time.getMinutes();
-    const ampm = hour >= 12 ? 'PM': 'AM'
+    if (!TIMEZONE) {
+        console.error("Unknown city");
+        return '00:00 AM';
+    }
 
-    timeEl.innerHTML = hoursIn12HrFormat + ':' + (minutes < 10? '0' + minutes: minutes) + ' ' + `<span id="am-pm">${ampm}</span>`
-    dateEl.innerHTML = days[day - 1 % days.length] + ', ' + months[month] + ' ' + date
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString("en-US", {
+    weekday: "long",   // e.g., "Monday"
+    month: "long",     // e.g., "September"
+    day: "numeric",    // e.g., "15"
+    timeZone: TIMEZONE // Adjust to your city
+    });
+    const cityTime = date.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true, // Set to false for 24-hour format
+        timeZone: TIMEZONE // Replace with your desired time zone
+    });
+
+    timeEl.innerHTML = cityTime;
+    dateEl.innerHTML = formattedDate
 }, 1000);
+
+function handleNewLocation(location) {
+    LOCATION = location
+    getWeatherData()
+}
 
 getWeatherData()
 function getWeatherData () {
@@ -40,7 +56,6 @@ function getWeatherData () {
         console.log(data)
         showWeatherData(data);
         })
-
     })
 }
 
@@ -50,6 +65,7 @@ function showWeatherData (data){
 
     timezone.innerHTML = data.location.tz_id;
     countryEl.innerHTML = data.location.country
+    TIMEZONE = data.location.tz_id
 
     currentWeatherItemsEl.innerHTML = 
     `<div class="weather-item">

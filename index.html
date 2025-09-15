@@ -11,7 +11,7 @@
         <div class="current-info">
             <div class="date-container">
                 <div class="time" id="time">
-                    Time
+                    Please wait, fetching API data
                     <span id="am-pm">am/pm</span>
                 </div>
                 <div class="date" id="date">
@@ -22,6 +22,11 @@
                     <!-- Weather data: wind speed, temp, etc. -->
                 </div>
             </div>
+
+            <form id="location_form">
+                <input type="text" id="location" placeholder="Enter location name" required>
+                <input type="submit" value="Submit">
+            </form>
 
             <div class="place-container">
                 <div class="time-zone" id="time-zone">Time Zone</div>
@@ -82,6 +87,19 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" referrerpolicy="no-referrer"></script>
-    <script type="module" src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("location_form");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Stops the page from refreshing
+            const location = document.getElementById("location").value;
+            document.getElementById("location").value = '';
+
+            handleNewLocation(location)
+        });
+    });
+</script>
 </html>
