@@ -57,7 +57,7 @@ function handleNewLocation(location) {
 }
 
 function getWeatherData () {
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${LOCATION}&days=10&aqi=no&alerts=no`).then(res => res.json()).then(data => {
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${LOCATION}&days=10&aqi=no&alerts=no`).then(res => res.json()).then(data => {
 
         console.log(data)
         showWeatherData(data);
