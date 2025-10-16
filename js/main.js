@@ -14,7 +14,7 @@ const API_KEY = '1e753cd618cf45b1859223930252308'
 let LOCATION = 'Toronto'
 let TIMEZONE = 'America/Toronto'
 
-// Updates Time
+// Updates Time every one second
 setInterval(() => {
     if (!TIMEZONE) {
         console.error("Unknown city");
@@ -39,24 +39,29 @@ setInterval(() => {
     dateEl.innerHTML = formattedDate
 }, 1000);
 
+// IIFE that gets the user's coordinates to display their city's weather data
+(function() {
+    navigator.geolocation.getCurrentPosition((success) => {
+        let {latitude, longitude } = success.coords;
+        let coords = latitude + ',' + longitude;
+
+        handleNewLocation(coords)
+    });
+
+    getWeatherData();
+})();
+
 function handleNewLocation(location) {
     LOCATION = location
     getWeatherData()
 }
 
-getWeatherData()
 function getWeatherData () {
-    navigator.geolocation.getCurrentPosition((success) => {
-        
-        // Might need in a later version
-        // let {latitude, longitude } = success.coords;
-
-        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${LOCATION}&days=10&aqi=no&alerts=no`).then(res => res.json()).then(data => {
+    fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${LOCATION}&days=10&aqi=no&alerts=no`).then(res => res.json()).then(data => {
 
         console.log(data)
         showWeatherData(data);
-        })
-    })
+    });
 }
 
 function showWeatherData (data){

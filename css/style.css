@@ -72,6 +72,24 @@ body {
     justify-content: space-between;
 }
 
+#location_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#location {
+    border-radius: 5px;
+    border-width: 0cm;
+    height: 10%;
+    text-indent: 15px;
+}
+
+#location_form > input[type="submit"] {
+    height: 7%;
+}
+
 .future-forecast {
     background: rgba(24, 24, 27, 0.8);
     padding: 25px;
