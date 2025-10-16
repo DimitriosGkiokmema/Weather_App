@@ -65,7 +65,7 @@ function getWeatherData () {
 }
 
 function showWeatherData (data){
-    let  {humidity, dewpoint_c, gust_kph, uv} = data.current
+    let  {humidity, dewpoint_c, gust_kph, uv, temp_c} = data.current
     let {sunrise, sunset} = data.forecast.forecastday[0].astro
 
     timezone.innerHTML = data.location.tz_id;
@@ -96,6 +96,10 @@ function showWeatherData (data){
     <div class="weather-item">
         <div>Sunset</div>
         <div>${sunset}</div>
+    </div>
+    <div class="weather-item">
+        <div>Current Weather</div>
+        <div>${temp_c}&#176; C</div>
     </div>`;
 
     let otherDayForcast = ''
