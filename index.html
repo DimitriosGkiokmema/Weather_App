@@ -25,7 +25,7 @@
 
             <form id="location_form">
                 <input type="text" id="location" placeholder="Enter location name" required>
-                <input type="submit" value="Submit">
+                <button type="submit" id="submit-btn">Submit</button>
             </form>
 
             <div class="place-container">
@@ -89,17 +89,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" referrerpolicy="no-referrer"></script>
     <script src="js/main.js"></script>
 </body>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("location_form");
-
-        form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Stops the page from refreshing
-            const location = document.getElementById("location").value;
-            document.getElementById("location").value = '';
-
-            handleNewLocation(location)
-        });
-    });
-</script>
 </html>

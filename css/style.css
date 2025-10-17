@@ -86,7 +86,7 @@ body {
     text-indent: 15px;
 }
 
-#location_form > input[type="submit"] {
+#location_form > input[type="button"] {
     height: 7%;
 }
 
