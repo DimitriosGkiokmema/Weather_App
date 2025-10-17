@@ -1,0 +1,29 @@
+{
+  "name": "weather_app",
+  "version": "1.0.0",
+  "description": "Web app of local weather data. Displays real-time weather data for any city entered. User's current location is displayed by, and users can look up the weather info for any location by entering it in the search bar. City names, lat/long, and IP addresses are accepted for the search entry, among others.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimitriosGkiokmema/Weather_App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DimitriosGkiokmema/Weather_App/issues"
+  },
+  "homepage": "https://github.com/DimitriosGkiokmema/Weather_App#readme",
+  "dependencies": {
+    "@prisma/client": "^6.17.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "prisma": "^6.17.1"
+  }
+}
